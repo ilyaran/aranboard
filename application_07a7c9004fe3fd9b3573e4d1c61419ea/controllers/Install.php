@@ -276,7 +276,7 @@ $this->load->model('mdl_category');
       $string = $this->load->view('Adm/Settings/templates/views/footer','',true);
       $this->save_to_files($string, APPPATH.'views','footer');
                
-      //unlink(APPPATH.'controllers/Install.php');         
+      unlink(APPPATH.'controllers/Install.php');         
       
       redirect('/');
 
