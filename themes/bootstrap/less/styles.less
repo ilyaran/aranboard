@@ -1,0 +1,77 @@
+@import "bootstrap.less";
+@grid-columns:24;
+@grid-gutter-width: 6px;
+body { 
+    padding-top: 62px; 
+     background: url(../images/bg.png) no-repeat;
+    -moz-background-size: 100%; 
+    -webkit-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    background-color: black;
+}
+
+#cat_bar .btn.disabled, .btn[disabled], fieldset[disabled] .btn {   
+}
+
+#cat_bar a.btn  {
+  text-align: left;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.sub {display: none;}
+
+.make-sm-column-push(@columns) {
+  @media (min-width: @screen-sm-min) {
+    left: percentage((@columns / @grid-columns));
+  }
+}
+
+.make-sm-column-pull(@columns) {
+  @media (min-width: @screen-sm-min) {
+    right: percentage((@columns / @grid-columns));
+  }
+}
+
+.panel {
+    margin-bottom: 3px;
+}
+
+.product_short_description{
+   overflow: auto;
+   min-height: 100px;
+   max-height: 100px;
+}
+
+.logo {
+   margin: 0px 5px 5px 5px;
+   float:left;
+   height:250px;
+}
+.loader {
+   display: none;
+}
+
+.sort{
+   margin-bottom:0px;
+   padding:10px;
+}
+
+.btn img{
+   margin:0px;
+}
+
+.list-group-item {
+   position: relative;
+   display: block;
+   padding: 20px 15px;
+   margin-bottom: 1px;
+   background-color: #fff;
+   border: 1px solid #ddd;
+}
+
+.product_short_description p {
+   margin:0px;
+   line-height:0.9em;
+}
