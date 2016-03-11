@@ -97,7 +97,7 @@ switch (ENVIRONMENT)
  * Include the path if the folder is not in the same directory
  * as this file.
  */
-	$system_path = 'system_9c6a7055a37538f09d4cdfae2b185bae';
+	$system_path = 'system';
 
 /*
  *---------------------------------------------------------------
@@ -112,7 +112,7 @@ switch (ENVIRONMENT)
  *
  * NO TRAILING SLASH!
  */
-	$application_folder = 'application_07a7c9004fe3fd9b3573e4d1c61419ea';
+	$application_folder = 'application';
 
 /*
  *---------------------------------------------------------------
