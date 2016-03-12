@@ -118,7 +118,12 @@ body {
                   </td>
                   <td><?php echo $this->config->item('base_url'); ?></td>
                   <td>
-                  <?php echo $this->lang->line('Example: http://your_site.com/folder_name/');?>
+                  <?php if ($this->config->item('base_url') == '')
+                  {
+                     echo '<p class="error">'.$this->lang->line('Set Base URL ($config[\'base_url\']="http://your_site.com/") in application/config/config.php').'</p>';
+                  } 
+                  ?>
+                  <?php echo $this->lang->line('Example: http://your_site.com/'); ?>
                    
                   
                   </td>

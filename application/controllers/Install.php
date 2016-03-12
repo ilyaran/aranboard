@@ -32,49 +32,51 @@ class Install extends CI_Controller {
       $data['lang_codes'] =& $lang_codes; 
       $data['connection_result'] = '';
       $this->lang->load('app');
-      
-      if(!empty($_POST)) 
+      if ($this->config->item('base_url') != '')
       {
-         $rules = array(
-            array('field' => 'language',   'label' => $this->lang->line('Language'),   'rules' => 'trim|required|alpha_dash|max_length[6]'),
-            //array('field' => 'base_url',   'label' => $this->lang->line('Base Url'),   'rules' => 'trim|required|valid_url|max_length[255]'),
-            //array('field' => 'index_page', 'label' => $this->lang->line('Index page'), 'rules' => 'trim|required|max_length[255]'),
-            //array('field' => 'email',      'label' => $this->lang->line('Email'),      'rules' => 'trim|required|valid_email|max_length[255]'),      
-            array('field' => 'hostname',   'label' => $this->lang->line('Host name'),  'rules' => 'trim|required|max_length[255]'),
-            array('field' => 'username',   'label' => $this->lang->line('User Name'),  'rules' => 'trim|required|alpha_dash|max_length[255]'),
-            array('field' => 'password',   'label' => $this->lang->line('Password'),   'rules' => 'trim|alpha_dash|max_length[255]'),
-            array('field' => 'database',   'label' => $this->lang->line('Data Base Name'), 'rules' => 'trim|required|alpha_dash|max_length[255]'),
-         );
-            
-         $this->form_validation->set_rules($rules);
-         if($this->form_validation->run() === true)
+         if(!empty($_POST)) 
          {
-            unset($this->db);
-            $dsn = 'mysqli://'.set_value('username').':'.set_value('password').'@'.set_value('hostname').'/'.set_value('database');
-            $this->load->database($dsn);
-            if (is_resource($this->db->conn_id) || is_object($this->db->conn_id))
+            $rules = array(
+               array('field' => 'language',   'label' => $this->lang->line('Language'),   'rules' => 'trim|required|alpha_dash|max_length[6]'),
+               //array('field' => 'base_url',   'label' => $this->lang->line('Base Url'),   'rules' => 'trim|required|valid_url|max_length[255]'),
+               //array('field' => 'index_page', 'label' => $this->lang->line('Index page'), 'rules' => 'trim|required|max_length[255]'),
+               //array('field' => 'email',      'label' => $this->lang->line('Email'),      'rules' => 'trim|required|valid_email|max_length[255]'),      
+               array('field' => 'hostname',   'label' => $this->lang->line('Host name'),  'rules' => 'trim|required|max_length[255]'),
+               array('field' => 'username',   'label' => $this->lang->line('User Name'),  'rules' => 'trim|required|alpha_dash|max_length[255]'),
+               array('field' => 'password',   'label' => $this->lang->line('Password'),   'rules' => 'trim|alpha_dash|max_length[255]'),
+               array('field' => 'database',   'label' => $this->lang->line('Data Base Name'), 'rules' => 'trim|required|alpha_dash|max_length[255]'),
+            );
+               
+            $this->form_validation->set_rules($rules);
+            if($this->form_validation->run() === true)
             {
+               unset($this->db);
+               $dsn = 'mysqli://'.set_value('username').':'.set_value('password').'@'.set_value('hostname').'/'.set_value('database');
                $this->load->database($dsn);
+               if (is_resource($this->db->conn_id) || is_object($this->db->conn_id))
+               {
+                  $this->load->database($dsn);
 
-               $data['connection_result'] = '<p style="color:green;">Ok!</p>';
-               
-               //$this->config->set_item('base_url',set_value('base_url'));
-         
-               $string = $this->load->view('Install/templates/config/routes','',true);
-               $this->save_to_files($string, APPPATH.'config','routes');
+                  $data['connection_result'] = '<p style="color:green;">Ok!</p>';
                   
-               $string = $this->load->view('Install/templates/config/database','',true);
-               $this->save_to_files($string, APPPATH.'config','database');
-               
-               $string = $this->load->view('Install/templates/config/config','',true);
-               $this->save_to_files($string, APPPATH.'config','config');
+                  //$this->config->set_item('base_url',set_value('base_url'));
+            
+                  $string = $this->load->view('Install/templates/config/routes','',true);
+                  $this->save_to_files($string, APPPATH.'config','routes');
+                     
+                  $string = $this->load->view('Install/templates/config/database','',true);
+                  $this->save_to_files($string, APPPATH.'config','database');
+                  
+                  $string = $this->load->view('Install/templates/config/config','',true);
+                  $this->save_to_files($string, APPPATH.'config','config');
 
-               redirect('install/start');
-                      
-            }
-            else
-            {
-               $data['connection_result'] = '<p class="error">Connection Failed!</p>';
+                  redirect('install/start');
+                         
+               }
+               else
+               {
+                  $data['connection_result'] = '<p class="error">Connection Failed!</p>';
+               }
             }
          }
       }
