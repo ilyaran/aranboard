@@ -40,8 +40,8 @@ class Category extends CI_Controller {
       CI_Controller::$data['categories'] = $q->result_array();
                       
       self::$data['category_table'] = $category_table;
-      $data['content']='adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content']='Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
    
    public function add($category_table = 'advert')
@@ -56,13 +56,13 @@ class Category extends CI_Controller {
             self::$data['post']['category_table']=$category_table;
             $this->db->insert(self::$dbtable, self::$data['post']);
             $this->create_widgets($category_table);
-            redirect('adm/'.__CLASS__.'/index/'.$category_table);
+            redirect('Adm/'.__CLASS__.'/index/'.$category_table);
          }
       }
       
       self::$data['category_table'] = $category_table;
-      $data['content']='adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content']='Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
    
    public function edit($category_id = 0, $category_table = 'advert')
@@ -87,13 +87,13 @@ class Category extends CI_Controller {
             self::$data['post']['category_table'] = $category_table;
             $this->db->where(self::$dbtable.'_id',$category_id)->update(self::$dbtable, self::$data['post']);
             $this->create_widgets($category_table);
-            redirect('adm/'.__CLASS__.'/index/'.$category_table);
+            redirect('Adm/'.__CLASS__.'/index/'.$category_table);
          }
       }
       
       self::$data['category_table'] = $category_table;
-      $data['content']='adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content']='Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
    
    private function validation()
@@ -141,7 +141,7 @@ class Category extends CI_Controller {
       $this->db->where('category_id',$category_id)->limit(1)->delete('category');
    
       $this->create_widgets($category['category_table']);
-      redirect('adm/'.__CLASS__.'/index/'.$category['category_table']);
+      redirect('Adm/'.__CLASS__.'/index/'.$category['category_table']);
 	}
 
    private function upl($key,$path,$filename)

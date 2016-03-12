@@ -15,7 +15,7 @@
 | environments.
 |
 */
-$config['base_url'] = '<?php echo base_url();?>';
+$config['base_url'] = '<?php echo $this->config->item('base_url'); ?>';
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ $config['base_url'] = '<?php echo base_url();?>';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '<?php echo set_value('index_page'); ?>';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -304,7 +304,7 @@ $config['cache_query_string'] = FALSE;
 |
 */
 
-$config['encryption_key'] = '<?php echo substr(md5(random_string('alnum',100).microtime().$this->input->ip_address()),0,32); ?>';
+$config['encryption_key'] = '<?php echo md5(random_string('alnum',100).microtime().$this->input->ip_address()); ?>';
 
 /*
 |--------------------------------------------------------------------------

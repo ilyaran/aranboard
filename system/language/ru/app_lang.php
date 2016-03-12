@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') || exit('No direct script access allowed');
  
+$lang['advert'] = 'Объявления';
 $lang['Add advert'] = 'Добавить объявление';
 $lang['Required fields'] = 'Обязательные для заполнения поля';
 $lang['Category'] = 'категория';

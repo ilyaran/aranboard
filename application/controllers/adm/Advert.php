@@ -63,8 +63,8 @@ class Advert extends CI_Controller {
       $this->set_paging($page, $attr_value);
       self::$data['category_table'] = $category_table;
       self::$last_q = $this->db->last_query();
-      $data['content'] = "adm/Advert/$category_table/index";
-      $this->load->view('adm/main',$data);
+      $data['content'] = "Adm/Advert/$category_table/index";
+      $this->load->view('Adm/main',$data);
       
 	}
    public function ajax_catalog($category_table = 'advert', $page = 0) 

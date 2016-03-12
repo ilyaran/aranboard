@@ -26,7 +26,7 @@ class Organization extends CI_Controller {
       self::$data['categories'] = $this->db->select('category_id,name,parent,sort,level,logo,enabled')
                              ->where('category_table','organization')
                              ->order_by('sort ASC')->get('category')->result_array();
-      self::$data['url'] = 'adm/organization/index/';
+      self::$data['url'] = 'Adm/organization/index/';
       if ($this->dx_auth->is_logged_in() && $this->dx_auth->is_admin())
       {
          self::$userid = $this->session->userdata('DX_user_id');
@@ -164,7 +164,7 @@ class Organization extends CI_Controller {
             self::$data['post']['author'] = self::$username;
             $this->db->insert('advert', self::$data['post']);
             
-            redirect('adm/advert');
+            redirect('Adm/advert');
          }    
       }
       
@@ -196,7 +196,7 @@ class Organization extends CI_Controller {
             $this->upl_multi('img');
             $this->db->where('advert_id',$advert_id)->update('advert', self::$data['post']);
             
-            redirect('adm/advert/edit/'.$advert_id);
+            redirect('Adm/advert/edit/'.$advert_id);
          }    
       }
 

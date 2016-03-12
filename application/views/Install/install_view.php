@@ -116,17 +116,17 @@ body {
                   <td><span class=""><?php echo $this->lang->line('Base url');?></span>
                  
                   </td>
-                  <td><input name="base_url" value="<?php echo set_value('base_url',$this->config->item('base_url')); ?>" placeholder="" type="text"/></td>
+                  <td><?php echo $this->config->item('base_url'); ?></td>
                   <td>
                   <?php echo $this->lang->line('Example: http://your_site.com/folder_name/');?>
-                   <?php echo form_error('base_url'); ?>
+                   
                   
                   </td>
                </tr>
                <tr>
                   <td><span class="">Index Page</span></td>
-                  <td><input name="index_page" value="<?php echo set_value('index_page','index.php'); ?>" placeholder="index.php" type="text"/></td>
-                  <td><?php echo form_error('index_page'); ?></td>
+                  <td>index.php</td>
+                  <td></td>
                </tr> 
                <tr>
                   <td><span class=""><?php echo $this->lang->line('Data Base');?></span></td>

@@ -106,8 +106,8 @@ class User extends CI_Controller{
 		
 		// Load view
 		//$this->load->view('backend/users', $data);
-      $data['content'] = 'adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content'] = 'Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
 	
 	function unactivated_users()
@@ -159,8 +159,8 @@ class User extends CI_Controller{
 		
 		// Load view
 		//$this->load->view('backend/unactivated_users', $data);
-      $data['content'] = 'adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content'] = 'Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
 	
 	function roles()
@@ -196,8 +196,8 @@ class User extends CI_Controller{
 		
 		// Load view
 		//$this->load->view('backend/roles', $data);
-      $data['content'] = 'adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content'] = 'Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
 	
 	function uri_permissions()
@@ -236,8 +236,8 @@ class User extends CI_Controller{
 		
 		// Load view
 		//$this->load->view('backend/uri_permissions', $data);
-      $data['content'] = 'adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content'] = 'Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
 	
 	function custom_permissions()
@@ -286,7 +286,7 @@ class User extends CI_Controller{
 	
 		// Load view
 		//$this->load->view('backend/custom_permissions', $data);
-      $data['content'] = 'adm/'.__CLASS__.'/'.__FUNCTION__;
-      $this->load->view('adm/main',$data);
+      $data['content'] = 'Adm/'.__CLASS__.'/'.__FUNCTION__;
+      $this->load->view('Adm/main',$data);
 	}
 }

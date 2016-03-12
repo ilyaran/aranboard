@@ -4,7 +4,7 @@ class Install extends CI_Controller {
    public function __construct()
    {
       parent::__construct();
-      $this->load->database();
+      
       $this->load->helper(array('file','url','string'));
       $this->load->config('board');
       $this->load->config('board_admin');
@@ -37,10 +37,10 @@ class Install extends CI_Controller {
       {
          $rules = array(
             array('field' => 'language',   'label' => $this->lang->line('Language'),   'rules' => 'trim|required|alpha_dash|max_length[6]'),
-            array('field' => 'base_url',   'label' => $this->lang->line('Base Url'),   'rules' => 'trim|required|valid_url|max_length[255]'),
-            array('field' => 'index_page', 'label' => $this->lang->line('Index page'), 'rules' => 'trim|required|max_length[255]'),
+            //array('field' => 'base_url',   'label' => $this->lang->line('Base Url'),   'rules' => 'trim|required|valid_url|max_length[255]'),
+            //array('field' => 'index_page', 'label' => $this->lang->line('Index page'), 'rules' => 'trim|required|max_length[255]'),
             //array('field' => 'email',      'label' => $this->lang->line('Email'),      'rules' => 'trim|required|valid_email|max_length[255]'),      
-            array('field' => 'hostname',   'label' => $this->lang->line('Host name'),  'rules' => 'trim|required|alpha_dash|max_length[255]'),
+            array('field' => 'hostname',   'label' => $this->lang->line('Host name'),  'rules' => 'trim|required|max_length[255]'),
             array('field' => 'username',   'label' => $this->lang->line('User Name'),  'rules' => 'trim|required|alpha_dash|max_length[255]'),
             array('field' => 'password',   'label' => $this->lang->line('Password'),   'rules' => 'trim|alpha_dash|max_length[255]'),
             array('field' => 'database',   'label' => $this->lang->line('Data Base Name'), 'rules' => 'trim|required|alpha_dash|max_length[255]'),
@@ -58,7 +58,7 @@ class Install extends CI_Controller {
 
                $data['connection_result'] = '<p style="color:green;">Ok!</p>';
                
-               $this->config->set_item('base_url',set_value('base_url'));
+               //$this->config->set_item('base_url',set_value('base_url'));
          
                $string = $this->load->view('Install/templates/config/routes','',true);
                $this->save_to_files($string, APPPATH.'config','routes');
@@ -83,6 +83,7 @@ class Install extends CI_Controller {
    
    public function start()
    {
+      $this->load->database();
       $prefix = $this->db->dbprefix('test');
       $prefix = substr($prefix,0,-4);
       $email = 'your@email.com';
@@ -349,7 +350,7 @@ class Install extends CI_Controller {
       $path = APPPATH.'controllers/Install.php';
       if(file_exists($path)) unlink($path);         
       
-      redirect('/');
+      redirect('admin');
 
    }
    

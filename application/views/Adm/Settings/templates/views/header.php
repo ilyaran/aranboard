@@ -67,7 +67,7 @@ body {
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo '<?php echo $this->lang->line(\'Catalog\'); ?>'; ?>&nbsp;<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                      <?php foreach ($this->config->item('category_tables') as $i) { ?>
-                     <li><a href="<?php echo $i == 'news' ? site_url("home/$i") : site_url("home/{$i}s"); ?>"><?php echo $i; ?></a></li>
+                     <li><a href="<?php echo $i == 'news' ? site_url("home/$i") : site_url("home/{$i}s"); ?>"><?php echo $this->lang->line($i); ?></a></li>
                      <?php } ?>
                     
                   </ul>
@@ -77,7 +77,7 @@ body {
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo '<?php echo $this->lang->line(\'Categories\'); ?>'; ?>&nbsp;<span class="caret"></span></a>
                   <ul class="dropdown-menu" role="menu">
                      <?php foreach ($this->config->item('category_tables') as $i) { ?>
-                     <li><a href="<?php echo site_url("home/category/$i"); ?>"><?php echo $i; ?></a></li>
+                     <li><a href="<?php echo site_url("home/category/$i"); ?>"><?php echo $this->lang->line($i); ?></a></li>
                      <?php } ?>
                   </ul>
                </li>
