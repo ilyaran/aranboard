@@ -1,3 +1,6 @@
+Requirements:
+Apache 2.2, Php 5.3, MySQL 5.5
+
 1. Unzip in your htdocs catalog
 
 2. Open application/config/config.php
